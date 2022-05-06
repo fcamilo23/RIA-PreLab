@@ -1,0 +1,35 @@
+header{
+    display: flex;
+    min-height: 50px;
+    justify-content: space-between;
+    background-color: dodgerblue;
+    align-items: center;
+    padding: 10px;
+}
+
+a{
+    text-decoration: none;
+    padding: 20px;
+    color:black
+}
+
+
+nav a{
+    font-weight: 500;
+
+}
+
+nav a:hover{
+    color: white;
+}
+
+@media (max-width:700px){
+    header{
+        flex-direction: column;
+    }
+
+    nav{
+        padding: 10px 0px;
+    }    
+
+}
