@@ -1,8 +1,39 @@
 .active-link{
-    background-color: blueviolet;
 
 }
 
 .active-link a{
     color:green 
+}
+body{
+font-family: sans-serif;
+margin: 0;
+
+}
+
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+nav a{
+    font-weight: 2000;
+    padding-right: 60px;
+
+}
+
+nav a:hover{
+    color:white
+
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: aliceblue;
+    height: 40px;
+    align-items: center;
+    padding: 10px
+
 }
