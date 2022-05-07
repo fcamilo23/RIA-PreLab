@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'RIA-PreLab'`, () => {
+  it(`should have as title 'RiaLab'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('RIA-PreLab');
+    expect(app.title).toEqual('RiaLab');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('RIA-PreLab app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('RiaLab app is running!');
   });
 });
