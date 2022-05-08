@@ -39,6 +39,7 @@ export class ProductosComponent implements OnInit {
 
   ProductosArray: Producto[] = [
     {nombre: "Sal", descripcion: "Gruesa", precio: "23" , imagen: "www"},
+    {nombre: "Azucar", descripcion: "Bella Union", precio: "95", imagen: "www"},
     {nombre: "Azucar", descripcion: "Bella Union", precio: "95", imagen: "www"}
   ];
 
