@@ -49,11 +49,15 @@ import { Cliente } from '../../clases/cliente';
 })
 export class ClientesComponent implements OnInit {
 
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-  }
+   // this.addLocalStorage();
+ //this.arr=this.ClientesArray;
 
+  }
+  
   navegar(){
     this.router.navigate(['/productos']);
   }
@@ -63,12 +67,25 @@ export class ClientesComponent implements OnInit {
     {id: 2, documento: "4.727.753-5", nombre: "Adrian", apellido: "Bauza", fecha_nacimiento: "9/9/1995", direccion: "Ruta 3 Km 73", telefono: "094832585"}
   ];
 
+  arr: Cliente[] = [];
+
+  LocalStorageArray: Cliente[] = JSON.parse(localStorage.getItem("myArray") || '{}');
 
   selectedCliente: Cliente = new Cliente();
+  
   
   isEqual(str1: string, str2: string)
   {
       return str1.toUpperCase() === str2.toUpperCase()
+  }
+
+  addLocalStorage(){
+    var array = JSON.parse(localStorage.getItem("myArray") || '{}');
+    if(array == '{}'){
+      localStorage.setItem('myArray', JSON.stringify(this.ClientesArray));
+    }
+
+   
   }
 
 
@@ -84,18 +101,33 @@ export class ClientesComponent implements OnInit {
      
     }*/
     
+    
     var x = false;
     for (let aux of this.ClientesArray) {
       if(this.isEqual(aux.documento, this.selectedCliente.documento))
         if(aux.documento != ""){
         x = true;
     }
+    
+
   }
     if(x == false){
       this.selectedCliente.id = this.ClientesArray.length + 1;
       this.ClientesArray.push(this.selectedCliente);
+
+
+  
+      // Se parsea para poder ser usado en js con JSON.parse :)
+
+      var array = JSON.parse(localStorage.getItem("myArray") || '{}');
+      array.push(this.selectedCliente);
+      localStorage.setItem('myArray', JSON.stringify(array));
+      
+     
     }
     
+    
+
     this.selectedCliente = new Cliente();  
   
   }
