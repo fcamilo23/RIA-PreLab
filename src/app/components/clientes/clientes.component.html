@@ -33,7 +33,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let cliente of ClientesArray" (click)="openEdit(cliente)" [class.active]="cliente == selectedCliente">
+            <tr *ngFor="let cliente of LocalStorageArray" (click)="openEdit(cliente)" [class.active]="cliente == selectedCliente">
                 <td>{{cliente.id}}</td>
                 <td>{{cliente.documento}}</td>
                 <td>{{cliente.nombre}}</td>

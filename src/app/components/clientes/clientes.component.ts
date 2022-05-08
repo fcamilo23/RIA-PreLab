@@ -53,7 +53,9 @@ export class ClientesComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-   // this.addLocalStorage();
+    //localStorage.setItem('myArray', JSON.stringify(this.ClientesArray));
+
+    //this.addLocalStorage();
  //this.arr=this.ClientesArray;
 
   }
@@ -101,7 +103,6 @@ export class ClientesComponent implements OnInit {
      
     }*/
     
-    
     var x = false;
     for (let aux of this.ClientesArray) {
       if(this.isEqual(aux.documento, this.selectedCliente.documento))
@@ -122,7 +123,8 @@ export class ClientesComponent implements OnInit {
       var array = JSON.parse(localStorage.getItem("myArray") || '{}');
       array.push(this.selectedCliente);
       localStorage.setItem('myArray', JSON.stringify(array));
-      
+      location.reload();
+
      
     }
     
