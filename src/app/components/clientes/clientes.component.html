@@ -23,6 +23,7 @@
     <table style="padding: 5px" class="table table-bordered">
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Documento</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
@@ -33,6 +34,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let cliente of ClientesArray" (click)="openEdit(cliente)" [class.active]="cliente == selectedCliente">
+                <td>{{cliente.id}}</td>
                 <td>{{cliente.documento}}</td>
                 <td>{{cliente.nombre}}</td>
                 <td>{{cliente.apellido}}</td>
@@ -67,7 +69,7 @@
         
      
         <div>
-            <h2>Agregar Clientes: </h2>
+            <h2>Agregar/Editar Clientes: </h2>
             <form class="form-horizontal">
                 <div class="form-group">
                     <div class="col-sm-10">

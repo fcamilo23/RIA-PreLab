@@ -1,1 +1,101 @@
-<h1>PRODUCTOS</h1>
+
+<div>
+    <h1 style="text-align: center">PRODUCTOS</h1>
+</div>
+
+
+
+
+
+
+
+<!--
+<h1>CLIENTES</h1>
+
+<button (click)="navegar()">Navegar a Productos</button>
+-->
+
+
+
+<div class="container app">
+    
+    <h2>Lista de productos: </h2>
+    <table style="padding: 5px" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Imagen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of ProductosArray" (click)="openEdit(producto)" [class.active]="producto == selectedProducto">
+                <td>{{producto.nombre}}</td>
+                <td>{{producto.descripcion}}</td>
+                <td>{{producto.precio}}</td>
+                <td>{{producto.imagen}}</td>
+                <td>
+                    
+                    
+                </td>
+
+            </tr>
+            
+        </tbody>
+        
+    </table>
+
+   <!-- <a  style = "margin-top: 1%;" (click)="editing()" class="boton boton-verde">Editar</a> -->
+    <a  style = "margin-top: 1%;" (click)="delet()" class="boton boton-rojo">Borrar Registro</a>
+</div>
+ <!-- <div>
+        <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" alt="">
+
+        </div> -->
+
+
+
+
+        <div style="width: 50%;" class="container app">
+            <div class="row">
+                
+             
+                <div>
+                    <h2>Agregar/Editar Productos: </h2>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-sm-10">
+                                <input type="text" class="formulario" placeholder="Ingrese nombre de Producto"  id="nombre" name="nombre" [(ngModel)]="selectedProducto.nombre">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-10">
+                                <input type="text" class="formulario" placeholder="Ingrese descripcion del Producto"  id="descripcion" name="descripcion" [(ngModel)]="selectedProducto.descripcion">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-10">
+                                <input type="text" class="formulario" placeholder="Ingrese precio del Producto"  id="precio" name="precio" [(ngModel)]="selectedProducto.precio">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-10">
+                                <input type="date" class="formulario" placeholder="Ingrese imagen del Producto"  id="imagen" name="imagen" [(ngModel)]="selectedProducto.imagen">
+                            </div>
+                        </div>
+                       
+                        
+                        <div class="form-group">
+                            <div class="col-sm-10">
+                                <button style="margin-right: 15px" type="submit" class="boton boton-verde" (click)="add()"> Guardar </button>
+                                <button  type="submit" class="boton boton-verde" (click)="limpiar()"> Limpiar </button>
+                               
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        
+            </div>
+           
+        </div>
