@@ -1,3 +1,115 @@
+
+<div>
+    <h1 style="text-align: center">CLIENTES</h1>
+</div>
+
+
+
+
+
+
+
+<!--
 <h1>CLIENTES</h1>
 
 <button (click)="navegar()">Navegar a Productos</button>
+-->
+
+
+
+<div class="container app">
+    
+    <h2>Lista de clientes: </h2>
+    <table style="padding: 5px" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Documento</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Fecha nacimiento</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of ClientesArray" (click)="openEdit(cliente)" [class.active]="cliente == selectedCliente">
+                <td>{{cliente.documento}}</td>
+                <td>{{cliente.nombre}}</td>
+                <td>{{cliente.apellido}}</td>
+                <td>{{cliente.fecha_nacimiento}}</td>
+                <td>{{cliente.direccion}}</td>
+                <td>{{cliente.telefono}}</td>
+                <td>
+                    
+                    
+                </td>
+
+            </tr>
+            
+        </tbody>
+        
+    </table>
+
+   <!-- <a  style = "margin-top: 1%;" (click)="editing()" class="boton boton-verde">Editar</a> -->
+    <a  style = "margin-top: 1%;" *ngIf="selectedCliente.id != 0" (click)="delet()" class="boton boton-rojo">Borrar Registro</a>
+</div>
+
+ <!-- <div>
+        <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" alt="">
+
+        </div> -->
+
+
+
+
+<div style="width: 50%;" class="container app">
+    <div class="row">
+        
+     
+        <div>
+            <h2>Agregar Clientes: </h2>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input type="text" class="formulario" placeholder="Ingrese su documento"  id="documento" name="documento" [(ngModel)]="selectedCliente.documento">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input type="text" class="formulario" placeholder="Ingrese su nombre"  id="nombre" name="nombre" [(ngModel)]="selectedCliente.nombre">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input type="text" class="formulario" placeholder="Ingrese su apellido"  id="apellido" name="apellido" [(ngModel)]="selectedCliente.apellido">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input type="date" class="formulario" placeholder="Ingrese su fecha de nacimiento"  id="fecha_nacimiento" name="fecha_nacimiento" [(ngModel)]="selectedCliente.fecha_nacimiento">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input type="text" class="formulario" placeholder="Ingrese su direccion"  id="direccion" name="direccion" [(ngModel)]="selectedCliente.direccion">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input type="text" class="formulario" placeholder="Ingrese su telefono"  id="telefono" name="telefono" [(ngModel)]="selectedCliente.telefono">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <button style="margin-right: 15px" type="submit" class="boton boton-verde" (click)="add()"> Guardar </button>
+                        <button  type="submit" class="boton boton-verde" (click)="limpiar()"> Limpiar </button>
+                       
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+   
+</div>

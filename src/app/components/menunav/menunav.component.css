@@ -20,7 +20,7 @@ a{
 nav a{
     font-weight: 2000;
     padding-right: 60px;
-
+    
 }
 
 nav a:hover{
@@ -31,7 +31,7 @@ nav a:hover{
 header{
     display: flex;
     justify-content: space-between;
-    background-color: aliceblue;
+    background-color: rgb(122, 156, 175);
     height: 40px;
     align-items: center;
     padding: 10px
