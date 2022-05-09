@@ -131,6 +131,12 @@ font-family: 'Open sans';
         background-color: #8a320a;
         border-color: #8a320a;
       }
+
+      .boton-limpiar {
+        color: #fff;
+        background-color: #33496b;
+        border-color: #33496b;
+      }
     
     
     .row {

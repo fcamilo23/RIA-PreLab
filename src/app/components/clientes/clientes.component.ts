@@ -53,9 +53,11 @@ export class ClientesComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    
     //localStorage.setItem('key', JSON.stringify(10));
-
     //localStorage.setItem('myArray', JSON.stringify(this.ClientesArray));
+
+
 
     //this.addLocalStorage();
  //this.arr=this.ClientesArray;
@@ -149,17 +151,37 @@ export class ClientesComponent implements OnInit {
   }
 
   editing(){
-    if(this.selectedCliente.id > 0){
-      this.selectedCliente = new Cliente();
+
+    var array = JSON.parse(localStorage.getItem("myArray") || '{}');
+    
+    for (const i in array) {
+      if (array[i].id == this.selectedCliente.id) {
+        array[i].documento = this.selectedCliente.documento;
+        array[i].nombre = this.selectedCliente.nombre;
+        array[i].apellido = this.selectedCliente.apellido;
+        array[i].fecha_nacimiento = this.selectedCliente.fecha_nacimiento;
+        array[i].direccion = this.selectedCliente.direccion;
+        array[i].telefono = this.selectedCliente.telefono;
+
+
+      }
     }
+    //array.push(this.selectedCliente);
+    localStorage.setItem('myArray', JSON.stringify(array));
+    this.limpiar();
   }
   limpiar(){
     this.selectedCliente = new Cliente();
   }
   delet(){
     if(confirm("Esta seguro de querer eliminar al Cliente?")){
-      this.ClientesArray = this.ClientesArray.filter(x => x != this.selectedCliente);
+      var array = JSON.parse(localStorage.getItem("myArray") || '{}');
+      
+      this.LocalStorageArray = this.LocalStorageArray.filter(x => x != this.selectedCliente);
       this.selectedCliente = new Cliente();
+
+      
+      localStorage.setItem('myArray', JSON.stringify(this.LocalStorageArray));
     }
     
   }
