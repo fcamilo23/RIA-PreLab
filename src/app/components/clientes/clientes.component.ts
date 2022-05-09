@@ -53,9 +53,19 @@ export class ClientesComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+     //localStorage.setItem('key', JSON.stringify(10));
+    // localStorage.setItem('myArray', JSON.stringify(this.ClientesArray));
+
+    /*
+    let datosCliente = JSON.parse(localStorage.getItem("datosCliente") || '{}');
+    if(datosCliente == '{}'){
+     localStorage.setItem('key', JSON.stringify(10));
+     localStorage.setItem('myArray', JSON.stringify(this.ClientesArray));
+
+      localStorage.setItem('datosCliente', 'dalegasss');
+    }
+*/
     
-    //localStorage.setItem('key', JSON.stringify(10));
-    //localStorage.setItem('myArray', JSON.stringify(this.ClientesArray));
 
 
 
@@ -106,6 +116,7 @@ export class ClientesComponent implements OnInit {
     if(x = false){
      
     }*/
+    if(this.selectedCliente.id == null){
     
     var x = false;
     for (let aux of this.ClientesArray) {
@@ -143,6 +154,12 @@ export class ClientesComponent implements OnInit {
     
 
     this.selectedCliente = new Cliente();  
+  }
+  
+  
+  else{
+    this.editing();
+  }
   
   }
 

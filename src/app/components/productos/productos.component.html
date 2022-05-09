@@ -23,6 +23,7 @@
     <table style="padding: 5px" class="table table-bordered">
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Nombre</th>
                 <th>Descripcion</th>
                 <th>Precio</th>
@@ -30,7 +31,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let producto of ProductosArray" (click)="openEdit(producto)" [class.active]="producto == selectedProducto">
+            <tr *ngFor="let producto of LocalStorageProducto" (click)="openEdit(producto)" [class.active]="producto == selectedProducto">
+                <td>{{producto.id}}</td>
                 <td>{{producto.nombre}}</td>
                 <td>{{producto.descripcion}}</td>
                 <td>{{producto.precio}}</td>
@@ -81,17 +83,18 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-10">
-                                <input type="date" class="formulario" placeholder="Ingrese imagen del Producto"  id="imagen" name="imagen" [(ngModel)]="selectedProducto.imagen">
+                                <input type="text" class="formulario" placeholder="Ingrese imagen del Producto"  id="imagen" name="imagen" [(ngModel)]="selectedProducto.imagen">
                             </div>
                         </div>
                        
                         
                         <div class="form-group">
                             <div class="col-sm-10">
-                                <button style="margin-right: 15px" type="submit" class="boton boton-verde" (click)="add()"> Guardar </button>
-                                <button  type="submit" class="boton boton-verde" (click)="limpiar()"> Limpiar </button>
+                                <button style="margin-right: 15px" type="submit" class="boton boton-verde" (click)="add()"> Guardar Cambios </button>
+                                 <button style="margin-right: 15px" type="submit" class="boton boton-limpiar" (click)="limpiar()"> Limpiar </button>
                                
                             </div>
+                           
                         </div>
                     </form>
                 </div>
