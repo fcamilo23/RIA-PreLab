@@ -3,7 +3,10 @@ import { Fecha } from "./fecha"
 import { Producto } from "./producto";
 
 export class Venta {
-    fecha!: Fecha;
-    cliente!: Cliente;
-    producto!: Producto
+    id!: number;
+    fecha!: string;
+    idCliente!: string;
+    ciCliente!: string;
+    idProducto!: string;
+    nombreProducto!: string;
 }

@@ -28,27 +28,21 @@ import { Producto } from '../../clases/producto';
 })
 export class ProductosComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor() { 
+   
+  }
 
   ngOnInit(): void {
+ 
+    localStorage.setItem('keyProducto', JSON.stringify(110));
+    localStorage.setItem('arrayProducto', JSON.stringify(this.ProductosArray));
 
-   // localStorage.setItem('keyProducto', JSON.stringify(110));
-   // localStorage.setItem('arrayProducto', JSON.stringify(this.ProductosArray));
-
-    /*
-    let datosProducto = JSON.parse(localStorage.getItem("datosProducto") || '{}');
-    if(datosProducto == '{}'){
-      localStorage.setItem('keyProducto', JSON.stringify(110));
-      localStorage.setItem('arrayProducto', JSON.stringify(this.ProductosArray));
-
-      localStorage.setItem('datosProducto', 'dalegasss');
-    }
-    */
+    
   }
 
-  navegar(){
+  /*navegar(){
     this.router.navigate(['/productos']);
-  }
+  }*/
 
   ProductosArray: Producto[] = [
     {id: 100, nombre: "Sal", descripcion: "Gruesa", precio: "23" , imagen: "www"},

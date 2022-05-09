@@ -2,3 +2,303 @@
     <h1 style="text-align: center">VENTAS</h1>
 </div>
 
+
+
+
+
+
+<div style="margin-top: 100px; width: 20%;" class="container app">
+    <h2>Lista de ventas realizadas:</h2>
+    <table style="padding: 5px" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Cliente id</th>
+                <th>Cliente ci</th>
+                <th>Producto id</th>
+                <th>Producto nombre</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let venta of LocalStorageVenta">
+                <td>{{venta.fecha}}</td>
+                <td>{{venta.idCliente}}</td>
+                <td>{{venta.ciCliente}}</td>
+                <td>{{venta.idProducto}}</td>
+                <td>{{venta.nombreProducto}}</td>
+            </tr>
+            
+        </tbody>
+        
+    </table>
+</div>
+
+
+
+
+<div> 
+    <h1 style="margin-top: 90px; text-align: center;">Realizar una venta</h1>
+</div>
+
+
+<div style="width: 50%; border-top-right-radius:  0px; border-bottom-right-radius: 0px;" class="container app">
+    <h2>Seleccione un cliente: </h2>
+    <table style="padding: 5px" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Documento</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Fecha nacimiento</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of LocalStorageCliente" (click)="openEditC(cliente)" [class.active]="cliente == selectedCliente">
+                <td>{{cliente.id}}</td>
+                <td>{{cliente.documento}}</td>
+                <td>{{cliente.nombre}}</td>
+                <td>{{cliente.apellido}}</td>
+                <td>{{cliente.fecha_nacimiento}}</td>
+                <td>{{cliente.direccion}}</td>
+                <td>{{cliente.telefono}}</td>
+                
+
+            </tr>
+            
+        </tbody>
+        
+    </table>
+
+   <!-- <a  style = "margin-top: 1%;" (click)="editing()" class="boton boton-verde">Editar</a> -->
+</div>
+
+
+
+
+
+<div style="width: 10%; border-radius: 0px;" class="container app">
+    <div class="row">
+        
+     
+        <div>
+            <h2>Cliente Seleccionado: </h2>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input readonly style="background-color: rgb(133, 173, 196);" type="text" class="formulario" placeholder="Id"  id="id" name="id" [(ngModel)]="selectedCliente.id">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input readonly style="background-color: rgb(133, 173, 196);" type="text" class="formulario" placeholder="Documento"  id="documento" name="documento" [(ngModel)]="selectedCliente.documento">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input readonly style="background-color: rgb(133, 173, 196);" type="text" class="formulario" placeholder="Nombre"  id="nombre" name="nombre" [(ngModel)]="selectedCliente.nombre">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input readonly style="background-color: rgb(133, 173, 196);" type="text" class="formulario" placeholder="Apellido"  id="apellido" name="apellido" [(ngModel)]="selectedCliente.apellido">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input readonly style="background-color: rgb(133, 173, 196);" type="date" class="formulario" placeholder="Fecha de nacimiento"  id="fecha_nacimiento" name="fecha_nacimiento" [(ngModel)]="selectedCliente.fecha_nacimiento">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input readonly style="background-color: rgb(133, 173, 196);" type="text" class="formulario" placeholder="Direccion"  id="direccion" name="direccion" [(ngModel)]="selectedCliente.direccion">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input readonly style="background-color: rgb(133, 173, 196);" type="text" class="formulario" placeholder="Telefono"  id="telefono" name="telefono" [(ngModel)]="selectedCliente.telefono">
+                    </div>
+                </div>
+                
+                
+            </form>
+        </div>
+
+    </div>
+   
+</div>
+
+
+
+
+<div style="width: 50%; border-radius: 0px;" class="container app2">
+    
+    <h2>Seleccione un Producto: </h2>
+    <table style="padding: 5px" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Imagen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of LocalStorageProducto" (click)="openEditP(producto)" [class.active]="producto == selectedProducto">
+                <td>{{producto.id}}</td>
+                <td>{{producto.nombre}}</td>
+                <td>{{producto.descripcion}}</td>
+                <td>{{producto.precio}}</td>
+                <td>{{producto.imagen}}</td>
+                
+
+            </tr>
+            
+        </tbody>
+        
+    </table>
+
+   <!-- <a  style = "margin-top: 1%;" (click)="editing()" class="boton boton-verde">Editar</a> -->
+</div>
+
+
+
+
+
+<div style="width: 10%; border-top-left-radius:  0px; border-bottom-left-radius: 0px;" class="container app2">
+    <div class="row">
+        
+     
+        <div>
+            <h2>Producto seleccionado: </h2>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input readonly style="background-color: rgb(133, 173, 196);" type="text" class="formulario" placeholder="Id"  id="id" name="id" [(ngModel)]="selectedProducto.id">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input readonly style="background-color: rgb(133, 173, 196);" type="text" class="formulario" placeholder="Nombre"  id="nombre" name="nombre" [(ngModel)]="selectedProducto.nombre">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input readonly style="background-color: rgb(133, 173, 196);" type="text" class="formulario" placeholder="Descripcion"  id="descripcion" name="descripcion" [(ngModel)]="selectedProducto.descripcion">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input readonly style="background-color: rgb(133, 173, 196);" type="text" class="formulario" placeholder="Precio"  id="precio" name="precio" [(ngModel)]="selectedProducto.precio">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input readonly style="background-color: rgb(133, 173, 196);" type="text" class="formulario" placeholder="Imagen"  id="imagen" name="imagen" [(ngModel)]="selectedProducto.imagen">
+                    </div>
+                </div>
+            
+                
+                
+            </form>
+        </div>
+
+    </div>
+   
+</div>
+
+
+<div>
+    <button style="margin-right: 15px; height: 50px; width: 10%;" type="submit" class="boton boton-verde" (click)="add()"> Realizar Venta </button>
+    <button style="margin-right: 15px; height: 50px; " type="submit" class="boton boton-rojo" (click)="limpiar()"> Cancelar </button>
+</div>
+
+
+
+
+<!--
+
+<div style="width: 96%; margin-bottom: 75px; min-height: 200px;" class="container app1">
+    <div class="row">
+        
+     
+        <h2>Selecciona un cliente de la lista: </h2>
+    <table style="padding: 5px" class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Documento</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Fecha nacimiento</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of LocalStorageCliente" (click)="openEditC(cliente)"  [class.active]="cliente == selectedCliente">
+                <td>{{cliente.id}}</td>
+                <td>{{cliente.documento}}</td>
+                <td>{{cliente.nombre}}</td>
+                <td>{{cliente.apellido}}</td>
+                <td>{{cliente.fecha_nacimiento}}</td>
+                <td>{{cliente.direccion}}</td>
+                <td>{{cliente.telefono}}</td>
+            </tr>
+            
+        </tbody>
+        
+    </table>
+    
+
+    </div>
+    <div>
+        <h3 >Cliente seleccionado: </h3>
+    </div>
+   
+</div>
+
+
+
+
+
+
+
+<div style="width: 96%; margin-bottom: 75px; min-height: 200px;" class="container app1">
+    <div class="row">
+        
+     
+        <h2>Selecciona un producto de la lista: </h2>
+    <table style="padding: 5px" class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Imagen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of LocalStorageProducto" (click)="openEditP(producto)" [class.active]="producto == selectedProducto">
+                <td>{{producto.id}}</td>
+                <td>{{producto.nombre}}</td>
+                <td>{{producto.descripcion}}</td>
+                <td>{{producto.precio}}</td>
+                <td>{{producto.imagen}}</td>
+            </tr>
+            
+        </tbody>
+        
+    </table>
+
+    </div>
+   
+</div>
+
+
+-->

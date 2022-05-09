@@ -7,13 +7,18 @@ background: linear-gradient(to right, #E4E5E6, #4f7892); /* W3C, IE 10+/ Edge, F
 font-family: 'Open sans';
     }
 
-    .container,
-    .container-fluid,
-    .container-xxl,
-    .container-xl,
-    .container-lg,
-    .container-md,
-    .container-sm {
+    .container{
+      
+      padding-right: var(--bs-gutter-x, 0.75rem);
+      padding-left: var(--bs-gutter-x, 0.75rem);
+      margin-right: auto;
+      margin-left: auto;
+    
+    
+      
+    }
+
+    .container1{
       
       padding-right: var(--bs-gutter-x, 0.75rem);
       padding-left: var(--bs-gutter-x, 0.75rem);
@@ -35,6 +40,20 @@ font-family: 'Open sans';
     display: table-cell;
     }
     
+
+   
+
+  .app2 {
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-right: 0px;
+    padding: 50px;
+    background: rgb(122, 156, 175);
+    width: 50%; 
+    display: table-cell;
+ 
+      
+}
     
     .app:nth-child(2){
       width: 82%;

@@ -47,36 +47,25 @@ import { Cliente } from '../../clases/cliente';
   styleUrls: ['./clientes.component.css']
  
 })
+
 export class ClientesComponent implements OnInit {
+  cargar:number = 0;
 
 
-  constructor(private router: Router) { }
+  constructor() { 
+        
+  }
 
   ngOnInit(): void {
-     //localStorage.setItem('key', JSON.stringify(10));
-    // localStorage.setItem('myArray', JSON.stringify(this.ClientesArray));
 
-    /*
-    let datosCliente = JSON.parse(localStorage.getItem("datosCliente") || '{}');
-    if(datosCliente == '{}'){
-     localStorage.setItem('key', JSON.stringify(10));
-     localStorage.setItem('myArray', JSON.stringify(this.ClientesArray));
-
-      localStorage.setItem('datosCliente', 'dalegasss');
-    }
-*/
-    
-
-
-
-    //this.addLocalStorage();
- //this.arr=this.ClientesArray;
+    localStorage.setItem('key', JSON.stringify(10));
+    localStorage.setItem('myArray', JSON.stringify(this.ClientesArray)); 
 
   }
-  
+  /*
   navegar(){
     this.router.navigate(['/productos']);
-  }
+  }*/
 
   ClientesArray: Cliente[] = [
     {id: 1, documento: "4.727.753-5", nombre: "Facundo", apellido: "Bauza", fecha_nacimiento: "9/9/1995", direccion: "Ruta 3 Km 73", telefono: "094832585"},
