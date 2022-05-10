@@ -58,9 +58,6 @@ export class ClientesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    localStorage.setItem('key', JSON.stringify(10));
-    localStorage.setItem('myArray', JSON.stringify(this.ClientesArray)); 
-
   }
   /*
   navegar(){

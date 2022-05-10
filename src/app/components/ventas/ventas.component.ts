@@ -18,9 +18,7 @@ export class VentasComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
-    localStorage.setItem('keyVenta', JSON.stringify(1010));
-    localStorage.setItem('arrayVentas', JSON.stringify(this.VentasArray));
+
   }
 
 

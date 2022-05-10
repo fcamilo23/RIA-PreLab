@@ -33,11 +33,7 @@ export class ProductosComponent implements OnInit {
   }
 
   ngOnInit(): void {
- 
-    localStorage.setItem('keyProducto', JSON.stringify(110));
-    localStorage.setItem('arrayProducto', JSON.stringify(this.ProductosArray));
 
-    
   }
 
   /*navegar(){
