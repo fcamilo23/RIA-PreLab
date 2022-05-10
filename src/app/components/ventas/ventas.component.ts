@@ -44,7 +44,8 @@ export class VentasComponent implements OnInit {
 
   
 
-  add(){
+  add()
+  {
     /* var x = false;
      for (let aux of this.ClientesArray) {
        if(aux.documento === this.selectedCliente.documento)
@@ -53,52 +54,45 @@ export class VentasComponent implements OnInit {
      if(x = false){
       
      }*/
-     if(this.selectedCliente.id == null || this.selectedProducto.id == null){
-      alert("Debe seleccionar un cliente y un producto para continuar");
+    if(this.selectedCliente.id == null || this.selectedProducto.id == null)
+    {
+       alert("Debe seleccionar un cliente y un producto para continuar");
     }
-    else{
-     
-     var x = false;
-     
-     if(x == false){
- 
-     let x = JSON.parse(localStorage.getItem("keyVenta") || '{}');
-     x++;
-     localStorage.setItem('keyVenta', JSON.stringify(x));
- 
-       //this.selectedCliente.id = this.ClientesArray.length + 1;
- 
- 
-       this.selectedVenta.id = x;
-       this.selectedVenta.fecha = this.getFechaActual();
-       this.selectedVenta.idCliente = this.selectedCliente.id.toString();
-       this.selectedVenta.ciCliente = this.selectedCliente.documento;
-       this.selectedVenta.idProducto = this.selectedProducto.id.toString();
-       this.selectedVenta.nombreProducto = this.selectedProducto.nombre;
+    else
+    { 
+      var x = false;
+      if(x == false)
+      {
+        if(confirm("Esta seguro de querer guardar la venta?"))
+        {
+          let x = JSON.parse(localStorage.getItem("keyVenta") || '{}');
+          x++;
+          localStorage.setItem('keyVenta', JSON.stringify(x));
+    
+          //this.selectedCliente.id = this.ClientesArray.length + 1;
+    
+    
+          this.selectedVenta.id = x;
+          this.selectedVenta.fecha = this.getFechaActual();
+          this.selectedVenta.idCliente = this.selectedCliente.id.toString();
+          this.selectedVenta.ciCliente = this.selectedCliente.documento;
+          this.selectedVenta.idProducto = this.selectedProducto.id.toString();
+          this.selectedVenta.nombreProducto = this.selectedProducto.nombre;
 
+          this.VentasArray.push(this.selectedVenta);
 
-       this.VentasArray.push(this.selectedVenta);
- 
- 
-   
-       // Se parsea para poder ser usado en js con JSON.parse :)
- 
-       var array = JSON.parse(localStorage.getItem("arrayVentas") || '{}');
-       array.push(this.selectedVenta);
-       localStorage.setItem('arrayVentas', JSON.stringify(array));
-       location.reload();
- 
-      
-     }
-     
-     
- 
-     this.selectedVenta = new Venta();  
-     this.selectedCliente = new Cliente();
-     this.selectedProducto = new Producto();
-   }
-   
-}
+          // Se parsea para poder ser usado en js con JSON.parse :)
+          var array = JSON.parse(localStorage.getItem("arrayVentas") || '{}');
+          array.push(this.selectedVenta);
+          localStorage.setItem('arrayVentas', JSON.stringify(array));
+          location.reload();
+        }
+      }  
+      this.selectedVenta = new Venta();  
+      this.selectedCliente = new Cliente();
+      this.selectedProducto = new Producto();
+    }
+  }
   
   getFechaActual():string{
     var today = new Date();

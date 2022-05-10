@@ -92,64 +92,46 @@ export class ClientesComponent implements OnInit {
 
    
   }
-
-
-
   
-  add(){
-   /* var x = false;
-    for (let aux of this.ClientesArray) {
-      if(aux.documento === this.selectedCliente.documento)
-        x = true;
+  add()
+  {
+    if(this.selectedCliente.id == null)
+    {
+      var x = false;
+      for (let aux of this.ClientesArray) 
+      {
+        if(this.isEqual(aux.documento, this.selectedCliente.documento))
+          if(aux.documento != "")
+          {
+            x = true;
+          }
+      }
+      if(x == false)
+      {
+        if(confirm("Esta seguro de querer guardar el nuevo Cliente?"))
+        {
+          let x = JSON.parse(localStorage.getItem("key") || '{}');
+          x++;
+          localStorage.setItem('key', JSON.stringify(x));
+          this.selectedCliente.id = x;
+          this.ClientesArray.push(this.selectedCliente);
+
+          // Se parsea para poder ser usado en js con JSON.parse :)
+          var array = JSON.parse(localStorage.getItem("myArray") || '{}');
+          array.push(this.selectedCliente);
+          localStorage.setItem('myArray', JSON.stringify(array));
+          location.reload();
+        }
+      }
+      this.selectedCliente = new Cliente();  
     }
-    if(x = false){
-     
-    }*/
-    if(this.selectedCliente.id == null){
-    
-    var x = false;
-    for (let aux of this.ClientesArray) {
-      if(this.isEqual(aux.documento, this.selectedCliente.documento))
-        if(aux.documento != ""){
-        x = true;
+    else
+    {
+      if(confirm("Esta seguro de querer editar al Cliente seleccionado?")){
+        this.editing();
+      }
+      
     }
-    
-
-  }
-    if(x == false){
-
-    let x = JSON.parse(localStorage.getItem("key") || '{}');
-    x++;
-    localStorage.setItem('key', JSON.stringify(x));
-
-      //this.selectedCliente.id = this.ClientesArray.length + 1;
-
-
-      this.selectedCliente.id = x;
-      this.ClientesArray.push(this.selectedCliente);
-
-
-  
-      // Se parsea para poder ser usado en js con JSON.parse :)
-
-      var array = JSON.parse(localStorage.getItem("myArray") || '{}');
-      array.push(this.selectedCliente);
-      localStorage.setItem('myArray', JSON.stringify(array));
-      location.reload();
-
-     
-    }
-    
-    
-
-    this.selectedCliente = new Cliente();  
-  }
-  
-  
-  else{
-    this.editing();
-  }
-  
   }
 
   openEdit(cliente: Cliente){
@@ -160,20 +142,22 @@ export class ClientesComponent implements OnInit {
 
     var array = JSON.parse(localStorage.getItem("myArray") || '{}');
     
-    for (const i in array) {
-      if (array[i].id == this.selectedCliente.id) {
-        array[i].documento = this.selectedCliente.documento;
-        array[i].nombre = this.selectedCliente.nombre;
-        array[i].apellido = this.selectedCliente.apellido;
-        array[i].fecha_nacimiento = this.selectedCliente.fecha_nacimiento;
-        array[i].direccion = this.selectedCliente.direccion;
-        array[i].telefono = this.selectedCliente.telefono;
-
-
+    if(confirm("Esta seguro de que querer Editar al Cliente?")){
+      for (const i in array) {
+        if (array[i].id == this.selectedCliente.id) {
+          array[i].documento = this.selectedCliente.documento;
+          array[i].nombre = this.selectedCliente.nombre;
+          array[i].apellido = this.selectedCliente.apellido;
+          array[i].fecha_nacimiento = this.selectedCliente.fecha_nacimiento;
+          array[i].direccion = this.selectedCliente.direccion;
+          array[i].telefono = this.selectedCliente.telefono;
+  
+  
+        }
       }
+      //array.push(this.selectedCliente);
+      localStorage.setItem('myArray', JSON.stringify(array));  
     }
-    //array.push(this.selectedCliente);
-    localStorage.setItem('myArray', JSON.stringify(array));
     this.limpiar();
   }
   limpiar(){
@@ -189,7 +173,6 @@ export class ClientesComponent implements OnInit {
       
       localStorage.setItem('myArray', JSON.stringify(this.LocalStorageArray));
     }
-    
   }
 }
 

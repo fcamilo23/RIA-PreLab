@@ -57,64 +57,39 @@ export class ProductosComponent implements OnInit {
   {
       return str1.toUpperCase() === str2.toUpperCase()
   }
-  add(){
-   /* var x = false;
-    for (let aux of this.ClientesArray) {
-      if(aux.documento === this.selectedCliente.documento)
-        x = true;
-    }
-    if(x = false){
-     
-    }
-    
-    
-    
-    
-    var x = false;
-    for (let aux of this.ProductosArray) {
-      if(this.isEqual(aux.documento, this.selectedProducto.documento))
-        if(aux.documento != ""){
-        x = true;
-    }
-    */
-  
-    
-     // this.selectedProducto.id = this.ProductosArray.length + 1;
+  add()
+  {
+    if(this.selectedProducto.id == null)
+    {
+      var x = false;
+      if(x == false)
+      {
+        if(confirm("Esta seguro de querer guardar el nuevo Cliente?"))
+        {
+          let x = JSON.parse(localStorage.getItem("keyProducto") || '{}');
+          x++;
+          localStorage.setItem('keyProducto', JSON.stringify(x));
+          //this.selectedCliente.id = this.ClientesArray.length + 1;
+          this.selectedProducto.id = x;
 
-     if(this.selectedProducto.id == null){
-     var x = false;
-
-     if(x == false){
- 
-     let x = JSON.parse(localStorage.getItem("keyProducto") || '{}');
-     x++;
-     localStorage.setItem('keyProducto', JSON.stringify(x));
- 
-       //this.selectedCliente.id = this.ClientesArray.length + 1;
- 
- 
-       this.selectedProducto.id = x;
-
-       if(this.selectedProducto.nombre != ""){
-       this.ProductosArray.push(this.selectedProducto);
-    
-       // Se parsea para poder ser usado en js con JSON.parse :)
- 
-       var array = JSON.parse(localStorage.getItem("arrayProducto") || '{}');
-       array.push(this.selectedProducto);
-       localStorage.setItem('arrayProducto', JSON.stringify(array));
-       location.reload();
- 
-       }
-  
+          if(this.selectedProducto.nombre != "")
+          {
+            this.ProductosArray.push(this.selectedProducto);
+        
+            // Se parsea para poder ser usado en js con JSON.parse :)
+            var array = JSON.parse(localStorage.getItem("arrayProducto") || '{}');
+            array.push(this.selectedProducto);
+            localStorage.setItem('arrayProducto', JSON.stringify(array));
+            location.reload();
+          }
+        }  
+      }
+    }
+    else
+    {
+      this.editing();
+    }
   }
-}
-
-else{
-  this.editing();
-
-}
-}
 
   
   openEdit(producto: Producto){
@@ -136,28 +111,30 @@ else{
   }
 
 
-  editing(){
-    var array = JSON.parse(localStorage.getItem("arrayProducto") || '{}');
-    
-    for (const i in array) {
-      if (array[i].id == this.selectedProducto.id) {
-        array[i].nombre = this.selectedProducto.nombre;
-        array[i].descripcion = this.selectedProducto.descripcion;
-        array[i].precio = this.selectedProducto.precio;
-        array[i].imagen = this.selectedProducto.imagen;
-
-
+  editing()
+  {
+    var array = JSON.parse(localStorage.getItem("arrayProducto") || '{}'); 
+    if(confirm("Esta seguro de querer editar el Producto?")){
+      for (const i in array) 
+      {
+        if (array[i].id == this.selectedProducto.id) 
+        {
+          array[i].nombre = this.selectedProducto.nombre;
+          array[i].descripcion = this.selectedProducto.descripcion;
+          array[i].precio = this.selectedProducto.precio;
+          array[i].imagen = this.selectedProducto.imagen;
+        }
       }
+      //array.push(this.selectedCliente);
+      localStorage.setItem('arrayProducto', JSON.stringify(array));
     }
-    //array.push(this.selectedCliente);
-    localStorage.setItem('arrayProducto', JSON.stringify(array));
     this.limpiar();
   }
-  limpiar(){
+
+  limpiar()
+  {
     this.selectedProducto = new Producto();
-  }
-  
-    
-  }
+  }    
+}
 
 
