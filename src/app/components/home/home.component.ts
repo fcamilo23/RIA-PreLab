@@ -27,10 +27,10 @@ export class HomeComponent implements OnInit {
   ];
 
   ProductosArray: Producto[] = [
-    {id: 100, nombre: "Sal", descripcion: "Gruesa", precio: "23" , imagen: "www"},
-    {id: 101, nombre: "Azucar", descripcion: "Bella Union", precio: "95", imagen: "www"},
-    {id: 102, nombre: "Aceite", descripcion: "De Canola", precio: "99" , imagen: "www"},
-    {id: 103, nombre: "Pimienta", descripcion: "Negra", precio: "120", imagen: "www"}
+    {id: 100, nombre: "Sal", descripcion: "Gruesa", precio: "23" , imagen: "https://f.fcdn.app/imgs/3d3817/www.distribuidoradelacosta.com.uy/dicouy/a53a/original/catalogo/12-16112-1611/600x780/sal-fina-celusal-500-grs-sal-fina-celusal-500-grs.jpg"},
+    {id: 101, nombre: "Azucar", descripcion: "Bella Union", precio: "95", imagen: "https://f.fcdn.app/imgs/16f4be/www.elclon.com.uy/clonuy/4e5f/original/catalogo/83952-1/460_460/azucar-azucarlito-bolsa-1kg-azucar-azucarlito-bolsa-1kg.jpg"},
+    {id: 102, nombre: "Aceite", descripcion: "De Canola", precio: "99" , imagen: "https://hdstatic.net/gridfs/holadoctor/_0_17-1559055396,953.jpg"},
+    {id: 103, nombre: "Pimienta", descripcion: "Negra", precio: "120", imagen: "https://thumbs.dreamstime.com/b/peque%C3%B1a-especia-redonda-del-grano-de-pimienta-negro-105711123.jpg"}
   ];
 
   VentasArray: Venta[] = [

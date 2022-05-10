@@ -60,7 +60,7 @@ export class ProductosComponent implements OnInit {
       var x = false;
       if(x == false)
       {
-        if(confirm("Esta seguro de querer guardar el nuevo Cliente?"))
+        if(confirm("Esta seguro de querer guardar el nuevo Producto?"))
         {
           let x = JSON.parse(localStorage.getItem("keyProducto") || '{}');
           x++;
